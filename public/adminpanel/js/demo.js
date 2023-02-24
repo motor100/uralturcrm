@@ -54,7 +54,10 @@
 
   let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 
-  var $user_logout = $('<div />', { class: 'mb-2' }).append($user_logout).append('<form class="form" action="/admin/logout" method="POST"><input type="hidden" name="_token" value="' + token + '"><button class="logout-btn" type="submit">Выйти</button></form>')
+  var $profile = $('<div />', { class: 'mb-2' }).append($profile).append('<a href="/profile">Profile</a>')
+  $container.append($profile)
+
+  var $user_logout = $('<div />', { class: 'mb-2' }).append($user_logout).append('<form class="form" action="/logout" method="POST"><input type="hidden" name="_token" value="' + token + '"><button class="logout-btn" type="submit">Выйти</button></form>')
   $container.append($user_logout)
 
 })(jQuery)

@@ -199,7 +199,7 @@
 
 /* Новости */
 .table-button .form {
-  display: inline-block;
+  display: contents;
 }
 .image-preview img {
   width: 100px;
@@ -209,10 +209,10 @@
 
 /* Таблица */
 .table .number-column {
-  width: 65px;
+  width: 20px;
 }
 .table .button-column {
-  width: 160px;
+  width: 135px;
 }
 .table .payment {
   width: 10px;

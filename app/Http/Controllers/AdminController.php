@@ -10,4 +10,14 @@ class AdminController extends Controller
     {
         return view('dashboard.home');
     }
+
+
+
+    public function users()
+    {   
+        $users = \App\Models\User::all();
+
+        return view('dashboard.users', compact('users'));
+    }
+
 }

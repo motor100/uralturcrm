@@ -3,13 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Панель управления | @yield('title')</title>
+  <title>@yield('title', 'Dashboard')</title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <link rel="shortcut icon" href="{{ asset('img/favicon.svg') }}" type="image/x-icon">
+  <!-- <link rel="shortcut icon" href="{{ asset('img/favicon.svg') }}" type="image/x-icon"> -->
+  <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
   <link rel="stylesheet" href="{{ asset('/adminpanel/css/all.min.css') }}">
   <link rel="stylesheet" href="{{ asset('/adminpanel/css/adminlte.min.css') }}">
   <link rel="stylesheet" href="{{ asset('/adminpanel/css/overlayscrollbars.min.css') }}">
   <link rel="stylesheet" href="{{ asset('/adminpanel/css/dashboard.css') }}">
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
@@ -66,7 +68,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <div class="logo">
         <a href="" class="brand-link">
-          <img src="{{ asset('img/favicon.svg') }}" alt="" class="logo-img brand-image img-circle elevation-3">
+          <!-- <img src="{{ asset('img/favicon.svg') }}" alt="" class="logo-img brand-image img-circle elevation-3"> -->
           <span class="brand-name brand-text font-weight-light">{{ config('app.name') }}</span>
         </a>
       </div>
@@ -162,22 +164,13 @@
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
-              <!-- <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/admin/o-kompanii" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>О компании</p>
-                  </a>
-                </li>
-              </ul> -->
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/admin/stat-partnerom" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Стать партнером</p>
-                  </a>
-                </li>
-              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="/dashboard/users" class="nav-link">
+                <i class="nav-icon nav-icon fas fa-user"></i>
+                <p>Пользователи
+                </p>
+              </a>
             </li>
           </ul>
         </nav>
