@@ -18,9 +18,9 @@ class ProfileController extends Controller
     {   
         $user = \App\Models\User::find(1);
         // dd($user->hasRole('web-developer')); //вернёт true
-        // dd($user->hasRole('project-manager')); //вернёт false
+        // dd($user->hasRole('manager')); //вернёт false
         // dd($user->givePermissionsTo('manage-users')); //выдаём разрешение
-        dd($user->hasPermission('manage-users')); //вернёт true
+        // dd($user->hasPermission('manage-users')); //вернёт true
         // return view('profile.edit', [
         return view('dashboard.profile', [
             'user' => $request->user(),

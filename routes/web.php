@@ -26,7 +26,7 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'home'])->name('dashboard');
 
-    Route::get('/dashboard/users', [AdminController::class, 'users']);
+    // 
 });
 
 Route::middleware('auth')->group(function () {
@@ -40,10 +40,18 @@ Route::middleware('auth')->group(function () {
  *
  * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
  */
-// Route::group(['middleware' => 'role:web-developer'], function() {
-//     Route::get('/test-middleware', function() {
-//        return 'Добро пожаловать, Веб-разработчик';
-//     });
-// });
+Route::group(['middleware' => 'role:web-developer'], function() {
+    // Route::get('/test-middleware', function() {
+    //    return 'Добро пожаловать, Веб-разработчик';
+    // });
+
+    Route::get('/dashboard/users', [AdminController::class, 'users']);
+});
+
 
 require __DIR__.'/auth.php';
+
+
+// Route::fallback(function () {
+//     return view('dashboard.404');
+// });

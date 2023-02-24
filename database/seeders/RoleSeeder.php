@@ -14,8 +14,8 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         $manager = new Role();
-        $manager->name = 'Project Manager';
-        $manager->slug = 'project-manager';
+        $manager->name = 'Manager';
+        $manager->slug = 'manager';
         $manager->save();
         $developer = new Role();
         $developer->name = 'Web Developer';

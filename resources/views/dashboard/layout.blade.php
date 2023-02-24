@@ -165,13 +165,17 @@
                 </p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="/dashboard/users" class="nav-link">
-                <i class="nav-icon nav-icon fas fa-user"></i>
-                <p>Пользователи
-                </p>
-              </a>
-            </li>
+            
+            @role('web-developer')
+              <li class="nav-item">
+                <a href="/dashboard/users" class="nav-link">
+                  <i class="nav-icon nav-icon fas fa-user"></i>
+                  <p>Пользователи
+                  </p>
+                </a>
+              </li>
+            @endrole
+
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

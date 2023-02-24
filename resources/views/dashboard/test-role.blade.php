@@ -12,7 +12,7 @@
       <div class="container-fluid">
 
       <!-- Кастомная директива Blade для проверки роли пользователя -->
-      @role('project-manager')
+      @role('manager')
       Project Manager Panel
       @endrole 
       @role('web-developer')
