@@ -35,4 +35,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+/**
+ * Проверка роута через middleware на роль.
+ *
+ * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+ */
+// Route::group(['middleware' => 'role:web-developer'], function() {
+//     Route::get('/test-middleware', function() {
+//        return 'Добро пожаловать, Веб-разработчик';
+//     });
+// });
+
 require __DIR__.'/auth.php';
