@@ -43,5 +43,6 @@
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
+        <p>Email: jhondeo@gmail.com Password: secret</p>
     </form>
 </x-guest-layout>

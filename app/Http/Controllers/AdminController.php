@@ -13,6 +13,14 @@ class AdminController extends Controller
 
 
 
+    public function current_notifications()
+    {
+        return view('dashboard.current-notifications');
+    }
+
+   
+
+
     public function users()
     {   
         $users = \App\Models\User::all();

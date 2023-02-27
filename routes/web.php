@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +28,40 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'home'])->name('dashboard');
 
-    // 
+
+    Route::get('/dashboard/clients', [ClientController::class, 'index']);
+
+    Route::get('/dashboard/clients/create', [ClientController::class, 'create'])->name('clients-create');
+
+    Route::post('/dashboard/clients/store', [ClientController::class, 'store'])->name('clients-store');
+
+    Route::get('/dashboard/clients/{id}', [ClientController::class, 'show']);
+
+    Route::get('/dashboard/clients/{id}/edit', [ClientController::class, 'edit'])->name('clients-edit');
+
+    Route::post('/dashboard/clients/update', [ClientController::class, 'update'])->name('clients-update');
+
+    Route::get('/dashboard/clients/{id}/destroy', [ClientController::class, 'destroy'])->name('clients-destroy');
+
+
+    Route::get('/dashboard/notifications', [NotificationController::class, 'index']);
+
+    Route::get('/dashboard/notifications/create', [NotificationController::class, 'create'])->name('notifications-create');
+
+    Route::post('/dashboard/notifications-store', [NotificationController::class, 'store'])->name('notifications-store');
+
+    Route::get('/dashboard/notification/{id}', [NotificationController::class, 'show']);
+
+    Route::get('/dashboard/notification/{id}/edit', [NotificationController::class, 'edit'])->name('notification-edit');
+
+    Route::post('/dashboard/notification/update', [NotificationController::class, 'update'])->name('notification-update');
+
+    Route::get('/dashboard/notification/{id}/destroy', [NotificationController::class, 'destroy'])->name('notification-destroy');
+
+
+    Route::get('/dashboard/current-notifications', [AdminController::class, 'current_notifications']);
+
+
 });
 
 Route::middleware('auth')->group(function () {
@@ -50,8 +85,3 @@ Route::group(['middleware' => 'role:web-developer'], function() {
 
 
 require __DIR__.'/auth.php';
-
-
-// Route::fallback(function () {
-//     return view('dashboard.404');
-// });

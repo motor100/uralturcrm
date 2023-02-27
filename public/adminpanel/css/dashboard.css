@@ -197,22 +197,16 @@
   margin: 0 0 0 10px;
 }
 
-/* Новости */
-.table-button .form {
-  display: contents;
-}
-.image-preview img {
-  width: 100px;
-  height: 150px;
-  object-fit: cover;
-}
-
 /* Таблица */
 .table .number-column {
   width: 20px;
 }
 .table .button-column {
-  width: 135px;
+  /* width: 135px; */
+  width: 160px;
+}
+.table .table-button .form {
+  display: contents;
 }
 .table .payment {
   width: 10px;
@@ -227,14 +221,23 @@
   background-color: red;
 }
 
-/* Заказы */
-.orders-table-row {
+/* Текущие уведомления */
+.current-notifications .notification-item {
+  position: relative;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+.current-notifications .notification-item.disabled {
+  color: #D3D3D3;
+}
+.current-notifications .notification-item.disabled .notification-item__link {
+  color: #D3D3D3;
+}
+.current-notifications  .notification-item .read-button {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  font-size: 14px;
   cursor: pointer;
-  transition: background-color .2s;
 }
-.orders-table-row:hover {
-  background-color: rgba(255,255,255,0.7);
-}
-.order-info-red {
-  color: red;
-}
+

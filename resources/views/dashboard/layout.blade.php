@@ -7,11 +7,13 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- <link rel="shortcut icon" href="{{ asset('img/favicon.svg') }}" type="image/x-icon"> -->
   <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
+  @yield('style')
   <link rel="stylesheet" href="{{ asset('/adminpanel/css/all.min.css') }}">
   <link rel="stylesheet" href="{{ asset('/adminpanel/css/adminlte.min.css') }}">
   <link rel="stylesheet" href="{{ asset('/adminpanel/css/overlayscrollbars.min.css') }}">
   <link rel="stylesheet" href="{{ asset('/adminpanel/css/dashboard.css') }}">
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
+ 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
@@ -45,13 +47,16 @@
         </li>
         <!-- Notifications Dropdown Menu -->
         <li class="nav-item">
-          <a class="nav-link" href="/admin/orders" title="Заказы">
+          <a class="nav-link" href="/dashboard/current-notifications" title="Заказы">
             <i class="far fa-bell"></i>
+            <span id="notifications-counter" class="badge badge-warning navbar-badge">3</span>
+            <!-- 
             @if(isset($orders_count))
               @if($orders_count > 0)
                 <span id="orders-counter" class="badge badge-warning navbar-badge">{{ $orders_count }}</span>
               @endif
             @endif
+             -->
           </a>
         </li>
         <li class="nav-item">
@@ -82,89 +87,18 @@
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-              <a href="/admin/products" class="nav-link">
-                <i class="nav-icon fab fa-product-hunt"></i>
-                <p>Товары</p>
+              <a href="/dashboard/clients" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>Клиенты</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/admin/stock" class="nav-link">
-                <i class="nav-icon fas fa-truck"></i>
-                <p>Склад</p>
+              <a href="/dashboard/notifications" class="nav-link">
+                <i class="nav-icon fas fa-bell"></i>
+                <p>Уведомления</p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="/admin/orders" class="nav-link">
-                <i class="nav-icon fas fa-shopping-cart"></i>
-                <p>Заказы
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="/admin/category" class="nav-link">
-                <i class="nav-icon fas fa-th-list"></i>
-                <p>Категории
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="/admin/testimonials" class="nav-link">
-                <i class="nav-icon far fa-comments"></i>
-                <p>Отзывы
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="/admin/cities" class="nav-link">
-                <i class="nav-icon fas fa-city"></i>
-                <p>Города
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="/admin/offices" class="nav-link">
-                <i class="nav-icon fas fa-boxes"></i>
-                <p>ПВЗ
-                </p>
-              </a>
-            </li>
-            <!-- <li class="nav-item">
-              <a href="/admin/popular-product" class="nav-link">
-                <i class="nav-icon fas fa-chart-pie"></i>
-                <p>Популярный товар
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="/admin/new-product" class="nav-link">
-                <i class="nav-icon fas fa-angle-double-up"></i>
-                <p>Новинки
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="/admin/popular-product-home" class="nav-link">
-                <i class="nav-icon fas fa-home"></i>
-                <p>Товары на главной
-                </p>
-              </a>
-            </li> -->
-            <li class="nav-item">
-              <a href="/admin/novosti" class="nav-link">
-                <i class="nav-icon nav-icon fas fa-edit"></i>
-                <p>Новости
-                </p>
-              </a>
-            </li>
-            <li class="nav-item menu-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-list"></i>
-                <p>
-                  Страницы
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-            </li>
+
             
             @role('web-developer')
               <li class="nav-item">

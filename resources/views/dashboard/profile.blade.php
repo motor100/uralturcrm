@@ -43,5 +43,3 @@ Profile
 </script>
 
 @endsection
-
-

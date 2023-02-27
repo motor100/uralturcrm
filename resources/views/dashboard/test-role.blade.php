@@ -25,9 +25,3 @@
 </div>
 
 @endsection
-
-<script>
-  // Изменение цвета активного пункта меню
-  let navLink = document.querySelectorAll('.nav-sidebar .nav-item > .nav-link');
-  navLink[7].classList.add('active');
-</script>
