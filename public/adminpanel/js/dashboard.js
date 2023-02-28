@@ -1,11 +1,11 @@
 // Отклчение скролла у input type=number
-// let numberInputs = document.querySelectorAll('.input-number');
+let numberInputs = document.querySelectorAll('.input-number');
 
-// numberInputs.forEach((item) => {
-//   item.onwheel = function(e) {
-//     e.preventDefault();
-//   }
-// });
+numberInputs.forEach((item) => {
+  item.onwheel = function(e) {
+    e.preventDefault();
+  }
+});
 
 // Маска ввода диапазона времени в формате 10:00 - 18:00
 // let openingHours = document.querySelectorAll('.openinghours');
@@ -51,6 +51,7 @@ let datepicker = document.querySelector('.datepicker');
 
 if (datepicker) {
   const dp = new AirDatepicker('.datepicker', {
+    minDate: new Date(),
     autoClose: true
   });
 }

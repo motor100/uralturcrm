@@ -12,6 +12,13 @@ class AdminController extends Controller
     }
 
 
+    public function events_sales($id)
+    {   
+        $event = \App\Models\Event::find($id);
+
+        return view('dashboard.events-sales', compact('event'));
+    }
+
 
     public function current_notifications()
     {

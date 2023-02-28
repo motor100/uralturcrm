@@ -93,6 +93,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a href="/dashboard/events" class="nav-link">
+                <i class="nav-icon fas fa-car-side"></i>
+                <p>События</p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="/dashboard/notifications" class="nav-link">
                 <i class="nav-icon fas fa-bell"></i>
                 <p>Уведомления</p>

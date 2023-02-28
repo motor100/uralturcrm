@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,8 @@ use App\Http\Controllers\NotificationController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return redirect('/login');
 });
 
 // Route::get('/dashboard', function () {
@@ -57,6 +59,34 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/dashboard/notification/update', [NotificationController::class, 'update'])->name('notification-update');
 
     Route::get('/dashboard/notification/{id}/destroy', [NotificationController::class, 'destroy'])->name('notification-destroy');
+
+
+    
+
+    Route::get('/dashboard/events', [EventController::class, 'index']);
+
+    // Route::get('/dashboard/events/sales', [AdminController::class, 'events_sales']);
+
+    Route::get('/dashboard/events/create', [EventController::class, 'create'])->name('events-create');
+
+    Route::post('/dashboard/events/store', [EventController::class, 'store'])->name('events-store');
+
+    Route::get('/dashboard/events/{id}', [EventController::class, 'show']);
+
+    Route::get('/dashboard/events/{id}/edit', [EventController::class, 'edit'])->name('events-edit');
+
+    Route::post('/dashboard/events/update', [EventController::class, 'update'])->name('events-update');
+
+    Route::get('/dashboard/events/{id}/destroy', [EventController::class, 'destroy'])->name('events-destroy');
+
+    Route::get('/dashboard/events/{id}/sales', [AdminController::class, 'events_sales'])->name('events-sale');
+    
+
+    // Route::get('/dashboard/events/sales', [AdminController::class, 'events_sales']);
+
+    // Route::get('/dashboard/events/s', function () {
+    //     return view('welcome');
+    // });
 
 
     Route::get('/dashboard/current-notifications', [AdminController::class, 'current_notifications']);
