@@ -31,15 +31,13 @@
             @foreach($events as $value)
               <tr>
                 <th scope="row">{{ $value->id }}</th>
-                <td>
-                  <a href="{{ route('events-sale', $value->id) }}">{{ $value->title }}</a>
-                </td>
+                <td>{{ $value->title }}</td>
                 <td>{{ $value->date }}</td>
                 <td class="table-button">
-                  <a href="/dashboard/events/{{ $value->id }}" class="btn btn-success">
+                  <a href="{{ route('events-show', $value->id) }}" class="btn btn-success">
                     <i class="fas fa-eye"></i>
                   </a>
-                  <a href="" class="btn btn-primary">
+                  <a href="{{ route('events-edit', $value->id) }}" class="btn btn-primary">
                     <i class="fas fa-pen"></i>
                   </a>
                   <form class="form" action="{{ route('events-destroy', $value->id) }}" method="get">

@@ -65,13 +65,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/dashboard/events', [EventController::class, 'index']);
 
-    // Route::get('/dashboard/events/sales', [AdminController::class, 'events_sales']);
-
     Route::get('/dashboard/events/create', [EventController::class, 'create'])->name('events-create');
 
     Route::post('/dashboard/events/store', [EventController::class, 'store'])->name('events-store');
 
-    Route::get('/dashboard/events/{id}', [EventController::class, 'show']);
+    // Route::get('/dashboard/events/{id}', [EventController::class, 'show']);
+
+    Route::get('/dashboard/events/{id}/show/', [EventController::class, 'show'])->name('events-show');
 
     Route::get('/dashboard/events/{id}/edit', [EventController::class, 'edit'])->name('events-edit');
 
