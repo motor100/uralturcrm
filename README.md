@@ -1,4 +1,4 @@
-# 77semena
+# Test and learning
 
 Laravel v10
 
